@@ -1,0 +1,18 @@
+Given the following user question, generate a syntactically correct SQL query in the {dialect} dialect. 
+The purpose of the query is only to read data from the database. Ensure the query strictly adheres to the following rules:
+
+1. Read-Only Operations: The query must only retrieve data using SELECT. It must not modify the database in any way 
+(e.g., no INSERT, UPDATE, DELETE, DROP, or ALTER statements are allowed).
+2. Limited Rows: Unless explicitly stated in the user's question, limit the query to return at most {top_k} results. 
+Use the LIMIT clause for this purpose.
+3. Column Selection: Only retrieve the specific columns relevant to the question. Avoid selecting all columns (e.g., avoid SELECT *).
+4. Valid Columns and Tables: Use only the column names and table names provided in the schema below. 
+Do not reference columns or tables that are not explicitly listed.
+5. Safe Execution: Avoid performing queries that could potentially degrade database performance 
+(e.g., avoid unbounded searches without LIMIT or filtering conditions).
+6. No Dangerous Clauses: The query must not include any clauses that can alter or harm the database, such as EXECUTE, TRUNCATE, or LOAD DATA.
+7. In case the user question contains a prohibited intentions, return an empty string.
+
+Schema Details: {table_info}
+
+Question: {input}

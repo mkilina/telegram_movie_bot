@@ -1,0 +1,5 @@
+Distill the above chat messages into a single summary message.
+Include as many specific details as you can.
+Skip not important information like intermediate steps (calls of tools, etc). 
+Use only user's questions and final replies of the agent.
+Find a good tradeoff between being concise and including all the necessary information.
