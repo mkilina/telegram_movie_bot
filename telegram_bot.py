@@ -24,7 +24,6 @@ async def responder(message: types.Message):
     user_id = message.chat.id
     config = {"configurable": {"thread_id": user_id}}
     messages = app.invoke({"messages": [("human", message.text)]}, config=config)
-    print(messages)
     llm_answer = messages['messages'][-1].content
     escaped_answer = markdownify(llm_answer)
     await message.answer(escaped_answer, parse_mode='MarkdownV2')
